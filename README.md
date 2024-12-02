@@ -50,10 +50,18 @@ SPACE: pauses and unpauses the solver
 
 . (PERIOD key): advances the solver one step at a time, when it is paused
 
-As opposed to starting at the corners (eg https://dash.harvard.edu/bitstream/handle/1/14398552/BECERRA-SENIORTHESIS-2015.pdf), this solver starts by guessing a square at random.
+As opposed to starting at the corners , this solver starts by guessing a square at random.
 
 
 The game position is analysed using some hardcoded rules, which will find all the squares which are definitely mined or safe (except in rare cases, when there is a safe square that the ruleset misses). If there are no such squares found, the algorithm tries to find a square with a low probability of being mined, and guesses. A full depth-first search would find the exact probabilities, at the expense of involving some very large integers and potentially being slow. I'm planning to maybe implement one at some point.
+
+
+Tech stack:
+
+Python 3.6+
+
+numpy for AI
+
 
 The solver (contained in the BasicRulesetAI class) has been written to be subclassable, so that better algorithms could be implemented and compared.
 
